@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	"go-echo-vue/handlers"
+	"github.com/rmenn/go-vue-todos/handlers"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
