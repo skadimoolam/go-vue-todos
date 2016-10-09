@@ -3,7 +3,7 @@
 
 new Vue({
 	el: 'body',
-	
+
 	data: {
 		tasks: [],
 		newTask: {}
@@ -30,7 +30,7 @@ new Vue({
 				this.tasks.push(this.newTask);
 
 				this.newTask = {};
-			}).error(function(err) { console.log(err) });
+			}).error(function(err) { console.log(err); });
 		},
 
 
@@ -39,21 +39,21 @@ new Vue({
 				this.$http.get('/tasks').then(function(res) {
 					this.tasks = res.data.items ? res.data.items : [];
 				});
-			}).error(function(err) { console.log(err) });
+			}).error(function(err) { console.log(err); });
 		},
 
 
 		updateTask: function(task, completed) {
-			if (completed) { task.done = "true" };
+			if (completed) { task.done = "true"; }
 
 			this.$http.put('/task', task).success(function(res) {
 				this.$http.get('/tasks').then(function(res) {
 					this.tasks = res.data.items ? res.data.items : [];
 				});
-			}).error(function(err) { console.log(err) });
+			}).error(function(err) { console.log(err); });
 		}
 	}
-})
+});
 
 
 })(Vue);
