@@ -22,7 +22,7 @@
                     return;
                 };
 
-                this.newTask.done = "false";
+                this.newTask.done = false;
 
                 this.$http.post('/task', this.newTask).success(function(res) {
                     this.newTask.id = res.created;
@@ -46,7 +46,7 @@
 
             updateTask: function(task, completed) {
                 if (completed) {
-                    task.done = "true";
+                    task.done = true;
                 }
 
                 this.$http.put('/task', task).success(function(res) {

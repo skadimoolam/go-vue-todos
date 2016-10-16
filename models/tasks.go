@@ -2,13 +2,14 @@ package models
 
 import (
 	"database/sql"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
 type Task struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
-	Done string `json:"done"`
+	Done bool   `json:"done"`
 }
 
 type TaskCollection struct {
@@ -39,7 +40,7 @@ func GetTasks(db *sql.DB) TaskCollection {
 }
 
 func PostTask(db *sql.DB, name string) (int64, error) {
-	sql := "INSERT INTO tasks(name, done) VALUES(?, 'false')"
+	sql := "INSERT INTO tasks(name, done) VALUES(?, 0)"
 
 	stmt, err := db.Prepare(sql)
 	if err != nil {
@@ -68,7 +69,12 @@ func PutTask(db *sql.DB, task Task) (int64, error) {
 
 	defer stmt.Close()
 
-	result, err := stmt.Exec(task.Name, task.Done, task.ID)
+	done := 0
+	if task.Done {
+		done = 1
+	}
+
+	result, err := stmt.Exec(task.Name, done, task.ID)
 
 	if err != nil {
 		panic(err)

@@ -2,8 +2,8 @@ package main
 
 import (
 	"database/sql"
-	"./handlers"
 
+	"./handlers"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/engine/standard"
 	_ "github.com/mattn/go-sqlite3"
@@ -40,7 +40,7 @@ func migrate(db *sql.DB) {
 		CREATE TABLE IF NOT EXISTS tasks (
 			id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 			name VARCHAR NOT NULL,
-			done TEXT NOT NULL
+			done INTEGER NOT NULL
 		);
 	`
 
