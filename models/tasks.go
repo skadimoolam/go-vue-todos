@@ -91,9 +91,9 @@ func DeleteTask(db *sql.DB, id int) (int64, error) {
 		panic(err)
 	}
 
-	result, err2 := stmt.Exec(id)
-	if err2 != nil {
-		panic(err2)
+	result, err := stmt.Exec(id)
+	if err != nil {
+		panic(err)
 	}
 
 	return result.RowsAffected()
