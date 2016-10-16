@@ -20,7 +20,7 @@
 				<h1>My Tasks</h1>
 
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="New Task" v-on:keyup.enter="createTask" v-model="newTask.name">
+					<input type="text" class="form-control" placeholder="New Task" v-on:keyup.enter="createTask" v-model="newTask.name" autofocus>
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="button" v-on:click="createTask">Create</button>
 					</span>
