@@ -18,7 +18,7 @@ func main() {
 	e.POST("/task", handlers.PostTask(db))
 	e.PUT("/task", handlers.PutTask(db))
 	e.DELETE("/task/:id", handlers.DeleteTask(db))
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Start(":8080")
 }
 
 func initDb(filepath string) *sql.DB {

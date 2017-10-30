@@ -1,2 +1,5 @@
 storage.db
 todo.exe
+
+# IntelliJ files
+.idea/*
