@@ -3,9 +3,9 @@ package main
 import (
 	"database/sql"
 
-	"./handlers"
 	"github.com/labstack/echo"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/skadimoolam/go-vue-todos/handlers"
 )
 
 func main() {
