@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"../models"
 	"github.com/labstack/echo"
+	"github.com/skadimoolam/go-vue-todos/models"
 )
 
 type H map[string]interface{}

@@ -3,10 +3,9 @@ package main
 import (
 	"database/sql"
 
-	"./handlers"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/engine/standard"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/skadimoolam/go-vue-todos/handlers"
 )
 
 func main() {
@@ -15,11 +14,11 @@ func main() {
 
 	e := echo.New()
 	e.Static("/", "public")
-	e.Get("/tasks", handlers.GetTasks(db))
+	e.GET("/tasks", handlers.GetTasks(db))
 	e.POST("/task", handlers.PostTask(db))
-	e.Put("/task", handlers.PutTask(db))
-	e.Delete("/task/:id", handlers.DeleteTask(db))
-	e.Run(standard.New(":8080"))
+	e.PUT("/task", handlers.PutTask(db))
+	e.DELETE("/task/:id", handlers.DeleteTask(db))
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
 func initDb(filepath string) *sql.DB {
