@@ -1,0 +1,6 @@
+package: github.com/skadimoolam/go-vue-todos
+import:
+- package: github.com/labstack/echo
+  version: ^3.2.3
+- package: github.com/mattn/go-sqlite3
+  version: ^1.3.0
